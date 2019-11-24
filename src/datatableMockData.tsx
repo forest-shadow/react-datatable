@@ -1,5 +1,5 @@
 import React from 'react';
-import { IDatatableHeader } from './components/DataTable/interfaces/DataTable';
+import { IDatatableHeader } from './components/DataTable/interfaces/DataTableHeader';
 
 interface UserModel {
   id: number;
