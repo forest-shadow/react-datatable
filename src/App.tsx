@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import DataTable from './components/DataTable';
+import { headers, userData } from './datatableMockData';
 
 const App: React.FC = () => {
+  const [datatableHeaders] = useState(headers);
+  const [userDataState] = useState(userData);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DataTable
+        title="User Profiles"
+        keyField="id"
+        pagination={{
+          pageLength: 5,
+          extended: true
+        }}
+        headers={datatableHeaders}
+        data={userDataState}
+        noDataMessage="No records!"
+      />
     </div>
   );
-}
+};
 
 export default App;
